@@ -52,6 +52,39 @@
       max-width: 40rem;
     }
 
+    /* --- Fortschrittsbalken --- */
+    .progress-container {
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .progress-label {
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .progress-bar {
+      width: 100%;
+      background-color: rgba(255,255,255,0.3);
+      border-radius: 8px;
+      height: 20px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background-color: #F8F5EB;
+      width: 0%;
+      border-radius: 8px;
+      transition: width 0.8s ease-in-out;
+    }
+
+    .progress-percent {
+      margin-top: 0.5rem;
+      font-size: 0.9rem;
+      opacity: 0.9;
+    }
+
     .footer {
       margin-top: 2rem;
       font-size: 0.8rem;
@@ -73,13 +106,37 @@
       Bald erfährst du hier mehr über das, was wir vorhaben.
     </p>
 
+    <!-- Fortschrittsbalken -->
+    <div class="progress-container">
+      <div class="progress-label">
+        Finanzierung: <span id="currentValue"></span> / <span id="goalValue"></span> €
+      </div>
+      <div class="progress-bar">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+      <div class="progress-percent" id="progressPercent"></div>
+    </div>
+
     <div class="footer">
       &copy; <span id="year"></span> Waldweidenhof
     </div>
   </main>
 
   <script>
+    // Jahr automatisch aktualisieren
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // ---- Finanzierung ----
+    const current = 10000;   // <<< HIER ÄNDERN
+    const goal = 100000;     // <<< HIER ÄNDERN
+
+    document.getElementById('currentValue').textContent = current.toLocaleString('de-DE');
+    document.getElementById('goalValue').textContent = goal.toLocaleString('de-DE');
+
+    const percent = Math.round((current / goal) * 100);
+    document.getElementById('progressPercent').textContent = percent + "% erreicht";
+
+    document.getElementById('progressFill').style.width = percent + "%";
   </script>
 </body>
 </html>
