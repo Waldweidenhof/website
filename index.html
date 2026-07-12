@@ -2,10 +2,9 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8" />
-  <title>Waldweidenhof – Bald erfährst du mehr</title>
+  <title>Waldweidenhof – Es geht los!</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Titel-/Text-Schrift: Fraunces von Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@300;400;500;700&display=swap" rel="stylesheet">
@@ -46,17 +45,14 @@
 
     .subtitle {
       font-size: 1.05rem;
-      line-height: 1.45;
+      line-height: 1.5;
       opacity: 0.95;
       margin-bottom: 2rem;
-      max-width: 40rem;
       white-space: pre-line;
     }
 
-    /* --- Fortschrittsbalken --- */
     .progress-container {
-      margin-top: 2rem;
-      margin-bottom: 2rem;
+      margin: 2rem 0;
     }
 
     .progress-label {
@@ -74,10 +70,9 @@
 
     .progress-fill {
       height: 100%;
+      width: 100%;
       background-color: #F8F5EB;
-      width: 0%;
       border-radius: 8px;
-      transition: width 0.8s ease-in-out;
     }
 
     .progress-percent {
@@ -100,46 +95,52 @@
   </style>
 </head>
 <body>
-  <main class="wrapper">
-    <h1>Waldweidenhof</h1>
 
-    <p class="subtitle">
-Bald erfährst du hier mehr über das, was wir vorhaben.
+<main class="wrapper">
+  <h1>Waldweidenhof</h1>
 
-Ein riesiges Dankeschön an alle Menschen, die uns auf diesem Weg unterstützen. Ohne euch wäre das nicht möglich!
-    </p>
+  <p class="subtitle">
+Die Flächen sind gesichert, die Planung läuft auf Hochtouren. Nächstes Frühjahr ziehen die ersten Kühe ein!
 
-    <!-- Fortschrittsbalken -->
-    <div class="progress-container">
-      <div class="progress-label">
-        Finanzierung: <span id="currentValue"></span> / <span id="goalValue"></span> €
-      </div>
-      <div class="progress-bar">
-        <div class="progress-fill" id="progressFill"></div>
-      </div>
-      <div class="progress-percent" id="progressPercent"></div>
+Dank der Unterstützung vieler großartiger Menschen haben wir unser Finanzierungsziel erreicht. 
+    
+Von Herzen ein riesen Dank an alle, die das möglich gemacht haben!
+
+Jetzt stecken wir ganz viel Energie in den Aufbau des Hofes.
+
+Ab April/Mai 2027 möchten wir frische Rohmilch direkt ab Hof anbieten.
+
+Weitere Einblicke und Neuigkeiten folgen bald.
+  </p>
+
+  <div class="progress-container">
+    <div class="progress-label">
+      Finanzierung: <span id="currentValue"></span> / <span id="goalValue"></span> €
     </div>
 
-    <div class="footer">
-      &copy; <span id="year"></span> Waldweidenhof
+    <div class="progress-bar">
+      <div class="progress-fill"></div>
     </div>
-  </main>
 
-  <script>
-    // Jahr automatisch aktualisieren
-    document.getElementById('year').textContent = new Date().getFullYear();
+    <div class="progress-percent">
+      100 % erreicht 🎉
+    </div>
+  </div>
 
-    // ---- Finanzierung ----
-    const current = 75000;   // <<< HIER ÄNDERN
-    const goal = 100000;     // <<< HIER ÄNDERN
+  <div class="footer">
+    &copy; <span id="year"></span> Waldweidenhof
+  </div>
+</main>
 
-    document.getElementById('currentValue').textContent = current.toLocaleString('de-DE');
-    document.getElementById('goalValue').textContent = goal.toLocaleString('de-DE');
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
 
-    const percent = Math.round((current / goal) * 100);
-    document.getElementById('progressPercent').textContent = percent + "% erreicht";
+const current = 100000;
+const goal = 100000;
 
-    document.getElementById('progressFill').style.width = percent + "%";
-  </script>
+document.getElementById("currentValue").textContent = current.toLocaleString("de-DE");
+document.getElementById("goalValue").textContent = goal.toLocaleString("de-DE");
+</script>
+
 </body>
 </html>
